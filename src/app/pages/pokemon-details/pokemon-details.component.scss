@@ -1,0 +1,24 @@
+main {
+  background: var(--white);
+
+  h1 {
+    text-align: center;
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .pk-type {
+    font-weight: bold;
+  }
+
+  .list-group {
+    .list-group-item {
+      .badge {
+        background: var(--orange) !important;
+      }
+    }
+  }
+
+}

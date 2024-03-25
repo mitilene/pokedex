@@ -1,0 +1,31 @@
+<app-search (searchEmitter)="getSearch($event)"></app-search>
+
+<div class="row">
+  <div *ngFor="let pokemon of getAllPokemons" class="col-12 col-md-6 my-4">
+    <a [routerLink]="['pokemon-details', pokemon.data.id]" *ngIf="pokemon.data" class="d-flex justify-content-between">
+      <section>
+        <h2 class="mb-0">{{ pokemon.name }}</h2>
+        <p class="mb-0">ID: {{ pokemon.data.id }}</p>
+        <ul class="pk-type">
+          <li *ngFor="let t of pokemon.data.types" class="badge">
+            {{ t.type.name }}
+          </li>
+        </ul>
+      </section>
+
+      <section class="d-flex align-items-center">
+        <img
+          [src]="pokemon.data.sprites.other.dream_world.front_default"
+          [alt]="pokemon.name"
+        />
+      </section>
+    </a>
+  </div>
+</div>
+
+<div *ngIf="error" class="row pk-error">
+  <div class="col-12 text-center">
+    <h1>Erro!!!</h1>
+    <h3>Não foi possível retornar nenhum pokémon.</h3>
+  </div>
+</div>

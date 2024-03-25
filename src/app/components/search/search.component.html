@@ -1,0 +1,17 @@
+<form class="row py-4 d-flex justify-content-center">
+  <div class="col-12 col-md-10">
+    <label for="pk-search" class="form-label">Pesquisar pokémon</label>
+    <div class="input-group">
+      <input (keyup)="search(input.value)" #input id="pk-search" type="text" class="form-control" placeholder="nome ou número do pokémon...">
+      <span class="input-group-text">
+        <img src="../../../assets/icons/search.svg" alt="pesquisar">
+      </span>
+    </div>
+  </div>
+
+  <!-- <div class="col-3 col-md-2">
+    <button class="btn btn-primary w-100" type="button" >
+      <img src="../../../assets/icons/search.svg" alt="pesquisar">
+    </button>
+  </div> -->
+</form>

@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<main class="container">
+  <ng-template [ngIf]="isLoading">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="my-3">{{ pokemon[0].name }} - ID: {{ pokemon[0].id }}</h1>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-12 col-md-6 d-flex justify-content-center mb-5">
+        <img
+          [src]="pokemon[0].sprites.other.dream_world.front_default"
+          [alt]="pokemon[0].name"
+        />
+      </div>
+      <div class="col-12 col-md-6">
+        <section>
+          <p>{{ pokemon[1].flavor_text_entries[0].flavor_text }}</p>
+        </section>
+
+        <section>
+          <p><b>Height:</b> {{ pokemon[0].height }}</p>
+          <p><b>Weight:</b> {{ pokemon[0].weight }}</p>
+          <p></p>
+        </section>
+
+        <section>
+          <p class="pk-type">
+            Type:
+            <span class="badge mx-2" *ngFor="let t of pokemon[0].types">{{
+              t.type.name
+            }}</span>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mb-4">
+      <div class="col-12 col-md-8">
+        <section>
+          <ul class="list-group">
+            <li
+              *ngFor="let s of pokemon[0].stats"
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              {{ s.stat.name }}
+              <span class="badge text-bg-primary rounded-pill">{{
+                s.base_stat
+              }}</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <div class="row mt-5 pb-5">
+      <div class="col-12 d-flex justify-content-center">
+        <button routerLink="/" class="btn btn-primary">voltar</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="error" class="row pk-error">
+    <div class="col-12 text-center">
+      <h1>Erro!!!</h1>
+      <h3>Não foi possível retornar os dados pokémon.</h3>
+    </div>
+  </div>
+</main>
